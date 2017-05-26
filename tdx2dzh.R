@@ -24,7 +24,6 @@ tdx2dzh<-function(tdx,dzh){
   n<-unlist(strsplit(read_file(tdx),"\r\n"))
   lapply(n,function(i,r=dzhraw){
     iraw<-charToRaw(i)
-    print(iraw[1])
     if(iraw[1] %in% c(31,30)){
     if (iraw[1] == 0x31) qz<-dzhsh 
     if (iraw[1] == 0x30) qz<-dzhsz
@@ -32,7 +31,6 @@ tdx2dzh<-function(tdx,dzh){
     }
   })
   write_file(as.raw(dzhraw),dzh)
-  print(dzhraw)
   print("同步成功")
 }
 
@@ -59,13 +57,13 @@ tb(tdxf1,dzhf1)
 tb(tdxf2,dzhf2)
 tb(tdxf3,dzhf3)
 
-###############实时自动同步################
-# m1<-file.info(txdf1)$mtime
-# m2<-file.info(txdf2)$mtime
-# m3<-file.info(txdf3)$mtime
-# repeat{
-#   Sys.sleep(60)
-#   tb(txdf1,dzhf2,m1)
-#   tb(txdf2,dzhf2,m2)
-#   tb(txdf3,dzhf3,m3)
-# }
+###自动保持同步
+m1<-file.info(tdxf1)$mtime
+m2<-file.info(tdxf2)$mtime
+m3<-file.info(tdxf3)$mtime
+repeat{
+  Sys.sleep(10)
+  tb(tdxf1,dzhf2,m1)
+  tb(tdxf2,dzhf2,m2)
+  tb(tdxf3,dzhf3,m3)
+}
