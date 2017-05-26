@@ -55,11 +55,14 @@ dzhf1<-"D:/dzh365/USERDATA/block/自选股.BLK"
 dzhf2<-"D:/dzh365/USERDATA/block/自选股1.BLK"
 dzhf3<-"D:/dzh365/USERDATA/block/自选股2.BLK"
 
+m1<-0
+m2<-0
+m3<-0
 
 repeat{
   
-  m1<-tb(tdxf1,dzhf2,m1)
-  m2<-tb(tdxf2,dzhf2,m2)
-  m3<-tb(tdxf3,dzhf3,m3)
+  m1<<-tb(tdxf1,dzhf2,m1)
+  m2<<-tb(tdxf2,dzhf2,m2)
+  m3<<-tb(tdxf3,dzhf3,m3)
   Sys.sleep(10)
 }
