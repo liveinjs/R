@@ -46,23 +46,27 @@ tb<-function(tdx,dzh,m=0){
 
 ###################################
 #需要同步的文件
-tdxf1<-'D:/new_tdx/T0002/blocknew/ZX.blk'
-tdxf2<-'D:/new_tdx/T0002/blocknew/ZDX.blk'
-tdxf3<-'D:/new_tdx/T0002/blocknew/DX.blk'
+tdxf1<-'D:/new_tdx/T0002/blocknew/CX.blk'
+tdxf2<-'D:/new_tdx/T0002/blocknew/ZX.blk'
+tdxf3<-'D:/new_tdx/T0002/blocknew/ZDX.blk'
+tdxf4<-'D:/new_tdx/T0002/blocknew/DX.blk'
 
 #大智慧文件
 dzhf1<-"D:/dzh365/USERDATA/block/自选股.BLK"
 dzhf2<-"D:/dzh365/USERDATA/block/自选股1.BLK"
 dzhf3<-"D:/dzh365/USERDATA/block/自选股2.BLK"
+dzhf4<-"D:/dzh365/USERDATA/block/自选股3.BLK"
 
 m1<-0
 m2<-0
 m3<-0
+M4<-0
 
 repeat{
   
   m1<<-tb(tdxf1,dzhf2,m1)
   m2<<-tb(tdxf2,dzhf2,m2)
   m3<<-tb(tdxf3,dzhf3,m3)
+  m3<<-tb(tdxf4,dzhf4,m3)
   Sys.sleep(10)
 }
