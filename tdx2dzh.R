@@ -60,13 +60,13 @@ dzhf4<-"D:/dzh365/USERDATA/block/自选股3.BLK"
 m1<-0
 m2<-0
 m3<-0
-M4<-0
+m4<-0
 
 repeat{
   
-  m1<<-tb(tdxf1,dzhf2,m1)
+  m1<<-tb(tdxf1,dzhf1,m1)
   m2<<-tb(tdxf2,dzhf2,m2)
   m3<<-tb(tdxf3,dzhf3,m3)
-  m3<<-tb(tdxf4,dzhf4,m3)
+  m4<<-tb(tdxf4,dzhf4,m4)
   Sys.sleep(10)
 }
