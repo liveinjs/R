@@ -13,7 +13,7 @@ library(readr)
 #前缀c(0x53, 0x48),SH,SZ,C(0x53, 0x5a)
 
 tdx2dzh<-function(tdx,dzh){
-  print("开始同步")
+  cat(c("开始同步",tdx,"\r\n"))
   #初始化
   dzhraw<-c(0xa6, 0x00, 0x51, 0xff, 0x01)
   dzhsh<-c(0x53, 0x48)
@@ -31,13 +31,15 @@ tdx2dzh<-function(tdx,dzh){
     }
   })
   write_file(as.raw(dzhraw),dzh)
-  print("同步成功")
+  cat(paste(c("同步成功",dzh,date(),"\r\n\r\n")))
 }
 
 tb<-function(tdx,dzh,m=0){
-  if (file.info(tdx)$mtime != m) {
+  mt<-file.info(tdx)$mtime
+  if (mt != m) {
     tdx2dzh(tdx,dzh) 
   }
+  return(mt)
 }
 
 
@@ -53,17 +55,11 @@ dzhf1<-"D:/dzh365/USERDATA/block/自选股.BLK"
 dzhf2<-"D:/dzh365/USERDATA/block/自选股1.BLK"
 dzhf3<-"D:/dzh365/USERDATA/block/自选股2.BLK"
 
-tb(tdxf1,dzhf1)
-tb(tdxf2,dzhf2)
-tb(tdxf3,dzhf3)
 
-###自动保持同步
-m1<-file.info(tdxf1)$mtime
-m2<-file.info(tdxf2)$mtime
-m3<-file.info(tdxf3)$mtime
 repeat{
+  
+  m1<-tb(tdxf1,dzhf2,m1)
+  m2<-tb(tdxf2,dzhf2,m2)
+  m3<-tb(tdxf3,dzhf3,m3)
   Sys.sleep(10)
-  tb(tdxf1,dzhf2,m1)
-  tb(tdxf2,dzhf2,m2)
-  tb(tdxf3,dzhf3,m3)
 }
