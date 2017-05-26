@@ -21,7 +21,7 @@ tdx2dzh<-function(tdx,dzh){
   dzhfg<-c(0x00, 0x00, 0x00, 0x00, 0xd6, 0x2e, 0x25, 0x59)
   
   #提取通达信数据
-  n<-read_csv(tdx)[[1]]
+  n<-unlist(strsplit(read_file(tdx),"\r\n"))
   lapply(n,function(i,r=dzhraw){
     iraw<-charToRaw(i)
     if (iraw[1] == 0x31) qz<-dzhsh else qz<-dzhsz
