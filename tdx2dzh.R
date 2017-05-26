@@ -24,10 +24,15 @@ tdx2dzh<-function(tdx,dzh){
   n<-unlist(strsplit(read_file(tdx),"\r\n"))
   lapply(n,function(i,r=dzhraw){
     iraw<-charToRaw(i)
-    if (iraw[1] == 0x31) qz<-dzhsh else qz<-dzhsz
+    print(iraw[1])
+    if(iraw[1] %in% c(31,30)){
+    if (iraw[1] == 0x31) qz<-dzhsh 
+    if (iraw[1] == 0x30) qz<-dzhsz
     dzhraw<<-c(r,c(qz,tail(iraw,-1),dzhfg))
+    }
   })
   write_file(as.raw(dzhraw),dzh)
+  print(dzhraw)
   print("同步成功")
 }
 
