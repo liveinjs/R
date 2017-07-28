@@ -50,17 +50,23 @@ tdxf1<-'D:/new_tdx/T0002/blocknew/CX.blk'
 tdxf2<-'D:/new_tdx/T0002/blocknew/ZX.blk'
 tdxf3<-'D:/new_tdx/T0002/blocknew/ZDX.blk'
 tdxf4<-'D:/new_tdx/T0002/blocknew/DX.blk'
+tdxf5<-'D:/new_tdx/T0002/blocknew/QL.blk'
+tdxf6<-'D:/new_tdx/T0002/blocknew/KY.blk'
 
 #大智慧文件
-dzhf1<-"D:/dzh365/USERDATA/block/自选股.BLK"
-dzhf2<-"D:/dzh365/USERDATA/block/自选股1.BLK"
-dzhf3<-"D:/dzh365/USERDATA/block/自选股2.BLK"
-dzhf4<-"D:/dzh365/USERDATA/block/自选股3.BLK"
+dzhf1<-"D:/dzh365/USERDATA/block/DK11.BLK"
+dzhf2<-"D:/dzh365/USERDATA/block/DK.BLK"
+dzhf3<-"D:/dzh365/USERDATA/block/FK30.BLK"
+dzhf4<-"D:/dzh365/USERDATA/block/XFK30.BLK"
+dzhf5<-"D:/dzh365/USERDATA/block/QL.BLK"
+dzhf6<-"D:/dzh365/USERDATA/block/KY.BLK"
 
 m1<-0
 m2<-0
 m3<-0
 m4<-0
+m5<-0
+m6<-0
 
 repeat{
   
@@ -68,5 +74,7 @@ repeat{
   m2<<-tb(tdxf2,dzhf2,m2)
   m3<<-tb(tdxf3,dzhf3,m3)
   m4<<-tb(tdxf4,dzhf4,m4)
+  m5<<-tb(tdxf5,dzhf5,m5)
+  m5<<-tb(tdxf6,dzhf6,m6)
   Sys.sleep(10)
 }
